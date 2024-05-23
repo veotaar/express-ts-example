@@ -1,5 +1,7 @@
 import { omit } from 'lodash';
-import UserModel from '../models/user.model';
+import UserModel, { UserClass } from '../models/user.model';
+import { FilterQuery } from 'mongoose';
+import { DocumentType } from '@typegoose/typegoose';
 
 interface UserInput {
   email: string;
@@ -32,4 +34,8 @@ export async function validatePassword({
   if (!isValid) return false;
 
   return omit(user.toJSON(), 'password');
+}
+
+export async function findUser(query: FilterQuery<DocumentType<UserClass>>) {
+  return UserModel.findOne(query).lean();
 }

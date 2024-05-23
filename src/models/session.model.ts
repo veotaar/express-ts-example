@@ -2,7 +2,7 @@ import { Ref, getModelForClass, prop } from '@typegoose/typegoose';
 import { TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 import { UserClass } from './user.model';
 
-class SessionClass extends TimeStamps {
+export class SessionClass extends TimeStamps {
   @prop({ ref: () => UserClass })
   public user?: Ref<UserClass>;
 

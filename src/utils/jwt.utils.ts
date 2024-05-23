@@ -5,6 +5,7 @@ const privateKey = Buffer.from(
   config.get<string>('privateKey'),
   'base64'
 ).toString('ascii');
+
 const publicKey = Buffer.from(
   config.get<string>('publicKey'),
   'base64'
