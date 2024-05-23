@@ -17,7 +17,7 @@ export interface HookNextFunction {
 
   return next();
 })
-class UserClass extends TimeStamps {
+export class UserClass extends TimeStamps {
   @prop({ unique: true, type: () => String })
   public email!: string;
 
